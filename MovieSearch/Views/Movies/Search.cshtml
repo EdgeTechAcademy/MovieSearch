@@ -1,0 +1,47 @@
+﻿@model IEnumerable<MovieSearch.Models.Movie>
+
+@{
+    ViewData["Title"] = "IMDB Title Search";
+}
+
+    <h1>Movie List from IMDB Title Search</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.image)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.description)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                <a href="http://www.imdb.com/title/@item.id">
+                    <img src="@item.image" width="75px" />
+                </a>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.description)
+            </td>
+            <td>
+                <a asp-action="CreateFrom" asp-route-id="@item.id" asp-route-image="@item.image" asp-route-description="@item.description" asp-route-title="@item.title">Add</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
