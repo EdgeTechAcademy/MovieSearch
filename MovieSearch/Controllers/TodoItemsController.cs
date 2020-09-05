@@ -12,9 +12,10 @@ namespace MovieSearch.Controllers
     [ApiController]
     public class TodoItemsController : ControllerBase
     {
-        //  Wow this looks an awful amount like a Controller
+        //  Wow this looks an awful lot like a Controller
         //  all the dressings of a Controller minus the web bits
-        //  does the same job but at the end of the day it just returns data not a web page
+        //  It does the same job but at the end of the day it just returns data not a web page
+        //  since it is an API Controller all endpoints (except for the GETs) will need to be exerised by PostMan
         private readonly MovieSearchContext _context;
 
         public TodoItemsController(MovieSearchContext context)

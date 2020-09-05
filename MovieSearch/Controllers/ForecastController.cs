@@ -29,9 +29,10 @@ namespace MovieSearch.Controllers
         [HttpGet]
         public IEnumerable<Forecast> Get()
         {
+            string[] Summaries = { "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching" };
             var rng = new Random();         //  create a random number generator
 
-            //  a bit of fancy C#. 
+            //  a bit of fancy C#. Each line is documented below
             //      return                      ultimately it returns an array of Forecast objects
             //      Enumerable.Range(1, 5)      create an array of numbers 1 to 5
             //                                  OK fine it is not an array it is an Enumerable list
@@ -46,10 +47,5 @@ namespace MovieSearch.Controllers
             })
             .ToArray();
         }
-
-        private static readonly string[] Summaries = new[]
-        {
-            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-        };
     }
 }

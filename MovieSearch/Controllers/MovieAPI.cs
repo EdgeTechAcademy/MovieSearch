@@ -18,7 +18,8 @@ namespace MovieSearch.Controllers
         [HttpGet("movie/{title}")]
         public ActionResult<Movie[]> GetMovie(String title)
         {
-            String baseURL = "https://imdb-api.com/en/API/SearchMovie/k_lLeNEBFq/";
+            //  this is my key. Register with IMDB and get your own
+            String baseURL = "https://imdb-api.com/en/API/SearchMovie/k_lLeNEBFqX/";
             //  we are using the static MoviesController method GetJsonText to
             //  hit the IMDB movie API to get our list of movies (DRY)
             string movieResults = GetJsonText(baseURL + title);

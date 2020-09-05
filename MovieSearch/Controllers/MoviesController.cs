@@ -23,6 +23,8 @@ namespace MovieSearch.Controllers
         // GET: Movies
         public async Task<IActionResult> Index()
         {
+            // we have added a little bit of code to the Index page. If we are coming from the IMDB search page
+            //      we only want to show the Add link. Coming from here we want to show Details | Edit | Delete
             ViewBag.AddOnly = false;
             return View(await _context.Movie.ToListAsync());
         }
@@ -196,6 +198,7 @@ namespace MovieSearch.Controllers
             //  of this JSON text
             //  WOW! this line of code does very cool stuff!!!
             MovieHeader header = JsonSerializer.Deserialize<MovieHeader>(movieResults);
+            //  we are reusing the Index page. The AddOnly variable says only show the Add link
             ViewBag.AddOnly = true;
             return View("Index", header.results);
         }
