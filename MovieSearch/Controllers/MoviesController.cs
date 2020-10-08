@@ -37,8 +37,7 @@ namespace MovieSearch.Controllers
                 return NotFound();
             }
 
-            var movie = await _context.Movie
-                .FirstOrDefaultAsync(m => m.id == id);
+            var movie = await _context.Movie.FirstOrDefaultAsync(m => m.id == id);
             if (movie == null)
             {
                 return NotFound();
